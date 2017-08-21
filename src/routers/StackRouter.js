@@ -9,6 +9,8 @@ import StateUtils from '../StateUtils';
 import validateRouteConfigMap from './validateRouteConfigMap';
 import getScreenConfigDeprecated from './getScreenConfigDeprecated';
 
+import invariant from '../utils/invariant';
+
 import type {
   NavigationAction,
   NavigationComponent,
@@ -195,6 +197,7 @@ export default (
         for (let i = 0; i < childRouterNames.length; i++) {
           const childRouterName = childRouterNames[i];
           const childRouter = childRouters[childRouterName];
+          invariant(!childRouter, "Can't find route name " + action.routeName);
           if (childRouter) {
             // For each child router, start with a blank state
             const initChildRoute = childRouter.getStateForAction(
