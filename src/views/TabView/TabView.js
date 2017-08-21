@@ -171,7 +171,7 @@ class TabView extends PureComponent<void, Props, void> {
     const props = {
       lazy,
       animationEnabled,
-      swipeEnabled,
+      swipeEnabled: tabBarVisible,
       renderPager,
       renderHeader,
       renderFooter,
